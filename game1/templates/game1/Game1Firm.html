@@ -1,0 +1,59 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Game 1 Firm
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        window.onload = function () 
+        {
+            document.getElementById("arrive_time").value = (new Date()).toISOString();
+        }
+    </script>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html>
+        <body>
+            <input type="hidden" name="time_Game1Firm" id="arrive_time"/>
+            <p>
+                {% if player.role == 'chooser' %}
+                    You chose to play in Firm {{ firm }}.
+                {% endif %}
+
+                {% if firm_in_game == 'A' %}
+                    You are playing in <B>Firm A</B>. You will see the baseline scores for the 2 players in your group.
+                {% else %}
+                    You are playing in <B>Firm B</B>. You will not see the baseline scores for the 2 players in your group.
+                {% endif %}
+                <br>
+                <br>
+                {% if firm_in_game == 'A' %}
+					Your baseline score: {{ baseline }}.
+					<BR>
+                    Opponent 1's baseline score: {{ opponent1 }}.
+                    <br>
+                    Opponent 2's baseline score: {{ opponent2 }}.
+                {% endif %}
+                <br><br>On the next screen, you will start the competition. Please click next when you are ready.
+                Good luck!
+            </p>
+        </body>
+    </html>
+
+    {% next_button %}
+{% endblock %}
+
+

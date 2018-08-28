@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block scripts %}
+    <style>
+    .correct {color: green}
+    .incorrect {color: red}
+    </style>
+            <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}
+    Comprehension Results
+{% endblock %}
+
+{% block content %}
+    Please note that if you have answered any questions incorrectly, you will be directed to submit your HIT on the next page.
+    
+    <P><b>Question 1:</B> How many other players are you competing against?</P>
+    <P><b>Your Answer:</b> {{ player.q2 }}
+    {% if player.q2 == "2 others" %}
+        <div class="correct">Correct!</div>
+    {% else %}
+        <div class="incorrect">Incorrect.</div>
+    {% endif %}
+        <b>Correct Answer: 2 others. </b>  You will be competing against 2 other players.</P>
+<HR>
+    <P><b>Question 2:</b> True or False: In Firm B, you know your competitors' scores before you compete.<BR></P>
+     <P><b>Your Answer:</b> {{ player.q3 }}
+        {% if player.q3 == "False" %}
+         <div class="correct">Correct!</div>
+    {% else %}
+        <div class="incorrect">Incorrect.</div>
+    {% endif %}
+        <b>Correct Answer: False. </b>In Firm B, you do not observe your competitors’ scores from Part 1.</P>
+
+    {% next_button %}
+
+{% endblock %}

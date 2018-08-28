@@ -1,0 +1,34 @@
+{% extends "global/Page.html" %}
+{% load staticfiles otree %}
+
+{% block scripts %}
+    <script type="text/javascript">
+        window.onload = function () 
+        {
+            document.getElementById("arrive_time").value = (new Date()).toISOString()
+        }
+
+        
+
+    </script>
+{% endblock %}
+
+{% block title %}
+    Why did you choose Firm {{firm}}?
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <br>
+        Before you start the contest, please explain why you chose Firm {{firm}}.
+    <br>
+    <textarea name="q6" cols="40" rows="10" required="true"></textarea>
+    {% next_button %}
+
+{% endblock %}

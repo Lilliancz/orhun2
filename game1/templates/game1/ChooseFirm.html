@@ -1,0 +1,64 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Now, please choose a firm to compete in
+{% endblock %}
+
+{% block scripts %}
+    <script type="text/javascript">
+
+        window.onload = function () 
+        {
+            document.getElementById("arrive_time").value = (new Date()).toISOString()
+        }
+
+    </script>
+{% endblock %}
+
+{% block styles %}
+    <style>
+        .otree-timer {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+
+    <!DOCTYPE html>
+    <html>
+        <body>
+            <input type="hidden" name="time_ChooseFirm" id="arrive_time"/>
+            <p>
+                Make a choice by clicking the information environment (Firm A or B) you want to compete in. Please remember that
+                <br><br>
+                In Firm A: Competition begins after you observe your competitors’ scores from Part 1.<BR>
+In Firm B: You do not observe your competitors’ scores from Part 1.
+  <br><br>
+            </p>
+
+            <p id="choose">
+                Please choose the firm you would like to join. <br>
+                <input id="A" type="radio" name="firm" value="A"/> A <br>
+                <input id="B" type="radio" name="firm" value="B"/> B <br>
+            </p>
+
+            <br>
+            <p>
+                If you do not submit your answer within {{ pageTimeoutWording }}, you will not be allowed to participate in the remainder of the study.
+            </p>
+
+        </body>
+    </html>
+
+    <div id="next">
+        <button class="btn btn-primary btn-large next-button" style="float: right;">Next</button>
+    </div>
+
+
+{% endblock %}
+
+{% comment %}
+ 
+{% endcomment %}
