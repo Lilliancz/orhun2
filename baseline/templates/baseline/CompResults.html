@@ -22,21 +22,21 @@
     
     <P><b>Question 1:</B> How many other players are you competing against?</P>
     <P><b>Your Answer:</b> {{ player.q2 }}
-    {% if player.q2 == "2 others" %}
+    {% if player.q2 == "2" %}
         <div class="correct">Correct!</div>
     {% else %}
         <div class="incorrect">Incorrect.</div>
     {% endif %}
-        <b>Correct Answer: 2 others. </b>  You will be competing against 2 other players.</P>
+        <b>Correct Answer: 2. </b>  You will be competing against 2 other players.</P>
 <HR>
-    <P><b>Question 2:</b> True or False: In Firm B, you know your competitors' scores before you compete.<BR></P>
+    <P><b>Question 2:</b> True or False: I cannot choose whether I want to learn my opponents' scores before competition starts.<BR></P>
      <P><b>Your Answer:</b> {{ player.q3 }}
         {% if player.q3 == "False" %}
          <div class="correct">Correct!</div>
     {% else %}
         <div class="incorrect">Incorrect.</div>
     {% endif %}
-        <b>Correct Answer: False. </b>In Firm B, you do not observe your competitors’ scores from Part 1.</P>
+        <b>Correct Answer: False. </b>Everyone can choose whether or not they want to learn their opponents' Part 1 performance scores.</P>
 
     {% next_button %}
 

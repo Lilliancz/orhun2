@@ -81,7 +81,7 @@ class Comprehension(Page):
         }
 
     def before_next_page(self):
-        if self.player.q2 == "2 others" and self.player.q3 == "False":
+        if self.player.q2 == "2" and self.player.q3 == "False":
             self.player.comp_pass = True
 
 

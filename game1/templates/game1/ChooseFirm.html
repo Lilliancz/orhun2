@@ -2,7 +2,7 @@
 {% load otree static %}
 
 {% block title %}
-    Now, please choose a firm to compete in
+    Now, please make a choice
 {% endblock %}
 
 {% block scripts %}
@@ -31,17 +31,15 @@
         <body>
             <input type="hidden" name="time_ChooseFirm" id="arrive_time"/>
             <p>
-                Make a choice by clicking the information environment (Firm A or B) you want to compete in. Please remember that
-                <br><br>
-                In Firm A: Competition begins after you observe your competitors’ scores from Part 1.<BR>
-In Firm B: You do not observe your competitors’ scores from Part 1.
+                Make a choice by clicking one of the two options below.
+                Competition will start once you and your two opponents have made your choices.
   <br><br>
             </p>
 
             <p id="choose">
-                Please choose the firm you would like to join. <br>
-                <input id="A" type="radio" name="firm" value="A"/> A <br>
-                <input id="B" type="radio" name="firm" value="B"/> B <br>
+                Please make a choice: <br>
+                <input id="A" type="radio" name="firm" value="A"/> I <B>want</B> to learn the scores my opponents obtained in Part 1   <br>
+                <input id="B" type="radio" name="firm" value="B"/> I <B>do not want</B> to learn the scores my opponents obtained in Part 1   <br>
             </p>
 
             <br>

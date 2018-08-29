@@ -95,12 +95,12 @@ class Player(BasePlayer):
     # comprehension questions for everyone
     q2 = models.StringField(
         widget=widgets.RadioSelect,
-        choices=['2 others', '3 others', '4 others'],
-        label='How many players are you competing against?')
+        choices=['2','3','4'],
+        label='How many people will you compete against?')
 
     q3 = models.StringField(
         widget=widgets.RadioSelect,
         choices=['True', 'False'],
-        label='In Firm B, you know your competitors\' scores before you compete.')
+        label='I cannot choose whether I want to learn my opponents\' scores before competition starts.')
 
 

@@ -43,8 +43,6 @@ class ChooseFirm(CustomMturkPage):
         }
 
     def before_next_page(self):
-        self.player.firm_in_game = self.player.firm
-        self.participant.vars['firm_in_game'] = self.player.firm
         if self.timeout_happened:
             self.player.TimeoutChooseFirm = True
 
@@ -75,7 +73,7 @@ class Game1FirmWaitPage(CustomMturkWaitPage):
 
 
 # Show firm for game 1
-class Game1Firm(CustomMturkPage):
+class GetReady(CustomMturkPage):
     form_model = 'player'
     form_fields = ['time_Game1Firm']
     timeout_seconds = settings.SESSION_CONFIGS[0]['timeout_seconds']
@@ -101,16 +99,11 @@ class Game1Firm(CustomMturkPage):
         p2.participant.vars['game1_answers']=p1.participant.vars['game1_answers']
         p3.participant.vars['game1_answers']=p1.participant.vars['game1_answers']
 
-        self.player.firm_in_game = self.participant.vars['firm_in_game']
-
         # set list of answers as string so we can see them in dataset
         self.player.game1_answers = ', '.join(str(x) for x in self.participant.vars['game1_answers'])
 
         return {
-            'problems': self.participant.vars['game1_problems'],
-            'answers': self.participant.vars['game1_answers'],
             'firm': self.player.firm,
-            'firm_in_game': self.player.firm_in_game,
             'baseline': self.player.participant.vars['baseline_score'],
             'opponent1': opponent1.participant.vars['baseline_score'],
             'opponent2': opponent2.participant.vars['baseline_score']
@@ -187,15 +180,11 @@ class Results1(CustomMturkPage):
         p2.participant.vars['game1_answers']=p1.participant.vars['game1_answers']
         p3.participant.vars['game1_answers']=p1.participant.vars['game1_answers']
 
-        self.player.firm_in_game = self.participant.vars['firm_in_game']
-
         # set list of answers as string so we can see them in dataset
         self.player.game1_answers = ', '.join(str(x) for x in self.participant.vars['game1_answers'])
 
         return {
             'answers': self.player.game1_answers,
-            'firm': self.player.firm,
-            'firm_in_game': self.player.firm_in_game,
             'baseline': self.player.participant.vars['baseline_score'],
             'opponent1': opponent1.participant.vars['baseline_score'],
             'opponent2': opponent2.participant.vars['baseline_score'],
@@ -229,13 +218,6 @@ class FinalSurveyA(CustomMturkPage):
     form_model = 'player'
     form_fields = ['q7_choice', 'q7']
     # timeout_seconds = settings.SESSION_CONFIGS[0]['time_limit']
-
-    def vars_for_template(self):
-        firm = self.player.firm_in_game
-        return {
-            'changefirm_label': 'You chose Firm '+firm+' in the contest. \
-        If given the choice again, would you still choose Firm '+firm+' or would you change your choice?'
-        }
 
     def before_next_page(self):
         if self.timeout_happened:
@@ -286,7 +268,7 @@ page_sequence = [
     ChooseFirm,
     WhyFirm,
     Game1FirmWaitPage,
-    Game1Firm,
+    GetReady,
     Game1,
     Results1WaitPage,
     SeeScoresChoice,

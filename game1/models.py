@@ -202,13 +202,14 @@ class Player(BasePlayer):
         widget=widgets.RadioSelect,
         choices=['Yes','No'],
         label='Before we show you the results of the contest, '
-              'would you like to see the baseline scores of your opponents?')
+              'would you like to see the scores your opponents obtained in Part 1?')
 
 
-    q6 = models.StringField(label='Why did you choose this firm?')
+    q6 = models.StringField()
     q7_choice = models.StringField(
         widget=widgets.RadioSelect,
-        choices=['Keep Firm', 'Change Firm'])
+        choices=['Make the same choice', 'Change my choice'],
+        label="If you had the choice again, would you make the same choice?")
     q7 = models.LongStringField(label='Why?')
     q8 = models.StringField(
         widget=widgets.RadioSelect,
