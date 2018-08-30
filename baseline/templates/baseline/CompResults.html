@@ -29,14 +29,14 @@
     {% endif %}
         <b>Correct Answer: 2. </b>  You will be competing against 2 other players.</P>
 <HR>
-    <P><b>Question 2:</b> True or False: I cannot choose whether I want to learn my opponents' scores before competition starts.<BR></P>
+    <P><b>Question 2:</b> True or False: I can choose whether I want to learn my opponents' scores before competition starts.<BR></P>
      <P><b>Your Answer:</b> {{ player.q3 }}
-        {% if player.q3 == "False" %}
+        {% if player.q3 == "True" %}
          <div class="correct">Correct!</div>
     {% else %}
         <div class="incorrect">Incorrect.</div>
     {% endif %}
-        <b>Correct Answer: False. </b>Everyone can choose whether or not they want to learn their opponents' Part 1 performance scores.</P>
+        <b>Correct Answer: True. </b>Everyone can choose whether or not they want to learn their opponents' Part 1 performance scores.</P>
 
     {% next_button %}
 

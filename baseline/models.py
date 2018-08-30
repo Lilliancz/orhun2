@@ -101,6 +101,6 @@ class Player(BasePlayer):
     q3 = models.StringField(
         widget=widgets.RadioSelect,
         choices=['True', 'False'],
-        label='I cannot choose whether I want to learn my opponents\' scores before competition starts.')
+        label='I can choose whether I want to learn my opponents\' scores before competition starts.')
 
 
